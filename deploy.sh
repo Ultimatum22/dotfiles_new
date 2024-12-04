@@ -63,3 +63,8 @@ else
     print "  ...failed. Probably unsupported architecture, please check fzf installation guide"
 fi
 popd
+
+# Download/refresh TLDR pages
+print "Downloading TLDR pages..."
+${SCRIPT_DIR}/tools/tldr-bash-client/tldr -u > /dev/null
+print "  ...done"
