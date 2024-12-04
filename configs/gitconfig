@@ -1,0 +1,60 @@
+[include]
+	path = local/user
+	path = local/stuff
+[push]
+	default = current
+	followTags = true
+[branch]
+	autoSetupRebase = always
+[merge]
+	ff = only
+	conflictStyle = zdiff3
+[rebase]
+	autoStash = true
+[alias]
+	lg = log --graph --pretty=fuller --decorate --color --show-signature
+	ls = log --oneline --abbrev-commit --color
+	amend = commit --amend
+[credential]
+	helper = cache --socket ~/.cache/git-credential-cache/socket
+[diff]
+	algorithm = histogram
+	ignoreSubmodules = dirty
+	submodule = log
+[core]
+	excludesFile = ~/.config/git/ignore
+	autocrlf = input
+	whitespace = cr-at-eol
+	untrackedCache = true
+[pager]
+	diff = which diff-so-fancy >/dev/null 2>&1 && diff-so-fancy | less --tabs=4 -RFX || less --tabs=4 -RFX
+[submodule]
+	fetchJobs = 0
+	recurse = true
+[help]
+	autoCorrect = 5
+[status]
+	submoduleSummary = true
+[color "diff-highlight"]
+	oldNormal = red bold
+	oldHighlight = red bold 52
+	newNormal = green bold
+	newHighlight = green bold 22
+[color "diff"]
+	meta = yellow
+	frag = magenta bold
+	commit = yellow bold
+	old = red bold
+	new = green bold
+	whitespace = red reverse
+
+[init]
+        defaultBranch = master
+[user]
+        name = Dave N
+        email = 4242374+Ultimatum22@users.noreply.github.com
+
+[url "ssh://git@github.com/"]
+        insteadOf = https://github.com/
+
+# vi: ft=gitconfig
