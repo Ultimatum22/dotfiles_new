@@ -30,3 +30,23 @@ else
     ln -sf "${SCRIPT_DIR}/zsh/.zshenv" "${ZDOTDIR:-${HOME}}/.zshenv"
     print "  ...failed to match this script dir, symlinking .zshenv"
 fi
+
+# Make sure submodules are installed
+print "Syncing submodules..."
+git submodule sync > /dev/null
+git submodule update --init --recursive > /dev/null
+git clean -ffd
+print "  ...done"
+
+# Make install git-extras
+print "Installing git-extras..."
+pushd tools/git-extras
+PREFIX="${HOME}/.local" make install > /dev/null
+popd
+print "  ...done"
+
+print "Installing git-quick-stats..."
+pushd tools/git-quick-stats
+PREFIX="${HOME}/.local" make install > /dev/null
+popd
+print "  ...done"
