@@ -16,3 +16,6 @@
 [submodule "tools/git-quick-stats"]
 	path = tools/git-quick-stats
 	url = https://github.com/tj/git-extras.git
+[submodule "tools/fzf"]
+	path = tools/fzf
+	url = https://github.com/junegunn/fzf.git
